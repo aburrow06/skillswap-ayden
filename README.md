@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SkillSwap
 
 SkillSwap is a responsive homepage concept for a community platform where people can discover skills, learn from others, and offer their own knowledge. The homepage includes a hero section, navigation, popular skill cards, category filters, expandable session details, and a call to action for new skill providers.
@@ -20,3 +21,6 @@ The skill listings and provider names are sample content for this frontend proto
 ## AI assistance
 
 AI assistance was used to draft portions of the HTML, CSS, and JavaScript. AI-assisted areas are identified with comments in the source files. Review and adapt the implementation as part of the development process.
+=======
+# skillswap-ayden
+>>>>>>> 1987649e9321c0cd677f784735b7312dd084b17f
