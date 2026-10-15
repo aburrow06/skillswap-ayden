@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SkillSwap helps people share skills, learn from others, and connect with their community.">
+  <title>SkillSwap | Learn Something New</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="home">
+    <a class="brand" href="#home" aria-label="SkillSwap home"><span class="brand-mark">S</span> SkillSwap</a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#browse">Browse Skills</a>
+      <a href="#offer">Offer a Skill</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="header-cta" href="#browse">Explore skills <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR COMMUNITY, YOUR CLASSROOM</p>
+        <h1>Everyone has a skill<br>worth <span>sharing.</span></h1>
+        <p class="hero-description">Learn something new from people around you. Share what you know, discover your next passion, and make skill-building a two-way street.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#browse">Find your next skill <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="#offer">Share what you know</a>
+        </div>
+        <div class="community-note">
+          <div class="avatar-stack" aria-hidden="true"><span>J</span><span>M</span><span>A</span><span>+</span></div>
+          <p><strong>Real people. Useful skills.</strong><br><span>Built around sharing and learning.</span></p>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of people sharing ideas">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="art-card art-card-main"><span class="art-icon">✳</span><p>Learn by doing.</p><small>Grow together</small></div>
+        <div class="art-card art-card-top"><span class="mini-icon purple">✎</span><div><strong>Creative skills</strong><small>Make something</small></div></div>
+        <div class="art-card art-card-bottom"><span class="mini-icon orange">⌘</span><div><strong>Practical skills</strong><small>Build confidence</small></div></div>
+        <span class="spark spark-one">✦</span><span class="spark spark-two">✳</span>
+      </div>
+    </section>
+
+    <section class="benefits" id="about" aria-label="How SkillSwap works">
+      <div><span class="benefit-number">01</span><strong>Discover</strong><p>Find skills that match your interests.</p></div>
+      <div><span class="benefit-number">02</span><strong>Connect</strong><p>Meet people who enjoy sharing knowledge.</p></div>
+      <div><span class="benefit-number">03</span><strong>Grow</strong><p>Practice something new, one session at a time.</p></div>
+    </section>
+
+    <section class="skills-section" id="browse">
+      <div class="section-heading">
+        <div><p class="eyebrow">A LITTLE SOMETHING FOR EVERYONE</p><h2>Explore popular skills</h2></div>
+        <p>Curiosity is a great place to start. Pick a skill and see where it takes you.</p>
+      </div>
+      <div class="filter-row" aria-label="Filter skills">
+        <button class="filter-chip active" data-filter="all" type="button">All skills</button>
+        <button class="filter-chip" data-filter="creative" type="button">Creative</button>
+        <button class="filter-chip" data-filter="tech" type="button">Tech</button>
+        <button class="filter-chip" data-filter="life" type="button">Everyday life</button>
+      </div>
+      <div class="skill-grid">
+        <article class="skill-card" data-category="creative" tabindex="0" role="button" aria-expanded="false" aria-label="More information about Photography Basics">
+          <div class="skill-visual visual-peach"><span class="visual-symbol">◉</span><span class="visual-label">CREATIVE</span></div>
+          <div class="skill-content"><div class="skill-meta"><span>Photography</span><span class="rating">★ 4.9</span></div><h3>Photography Basics</h3><p>Learn composition, lighting, and how to tell a story with your camera.</p><div class="skill-footer"><div class="provider"><span class="provider-avatar avatar-peach">JM</span><span><strong>Jordan M.</strong><small>Skill provider</small></span></div><span class="price">$15 <small>/ session</small></span></div>
+          <div class="card-extra">Great for beginners. Bring any camera or smartphone and leave with a few photos to be proud of.</div></div>
+        </article>
+        <article class="skill-card" data-category="tech" tabindex="0" role="button" aria-expanded="false" aria-label="More information about Build Your First Website">
+          <div class="skill-visual visual-lavender"><span class="visual-symbol">&lt;/&gt;</span><span class="visual-label">TECH</span></div>
+          <div class="skill-content"><div class="skill-meta"><span>Web development</span><span class="rating">★ 5.0</span></div><h3>Build Your First Website</h3><p>Get comfortable with HTML and CSS by making a simple page of your own.</p><div class="skill-footer"><div class="provider"><span class="provider-avatar avatar-lavender">AK</span><span><strong>Alex K.</strong><small>Skill provider</small></span></div><span class="price">$20 <small>/ session</small></span></div>
+          <div class="card-extra">No experience needed. We'll plan a small page, write the basics, and preview your work in a browser.</div></div>
+        </article>
+        <article class="skill-card" data-category="life" tabindex="0" role="button" aria-expanded="false" aria-label="More information about Everyday Cooking">
+          <div class="skill-visual visual-green"><span class="visual-symbol">♨</span><span class="visual-label">EVERYDAY LIFE</span></div>
+          <div class="skill-content"><div class="skill-meta"><span>Cooking</span><span class="rating">★ 4.8</span></div><h3>Everyday Cooking</h3><p>Master a few reliable meals and build confidence in the kitchen.</p><div class="skill-footer"><div class="provider"><span class="provider-avatar avatar-green">SR</span><span><strong>Sam R.</strong><small>Skill provider</small></span></div><span class="price">$12 <small>/ session</small></span></div>
+          <div class="card-extra">Practice simple techniques, learn kitchen basics, and take home ideas for easy meals.</div></div>
+        </article>
+        <article class="skill-card" data-category="creative" tabindex="0" role="button" aria-expanded="false" aria-label="More information about Drawing for Beginners">
+          <div class="skill-visual visual-blue"><span class="visual-symbol">✎</span><span class="visual-label">CREATIVE</span></div>
+          <div class="skill-content"><div class="skill-meta"><span>Illustration</span><span class="rating">★ 4.9</span></div><h3>Drawing for Beginners</h3><p>Try simple exercises that help you observe shapes and sketch with ease.</p><div class="skill-footer"><div class="provider"><span class="provider-avatar avatar-blue">TL</span><span><strong>Taylor L.</strong><small>Skill provider</small></span></div><span class="price">$10 <small>/ session</small></span></div>
+          <div class="card-extra">Explore line, shape, and shading in a relaxed beginner-friendly session. Paper and pencil are enough.</div></div>
+        </article>
+      </div>
+      <p class="interaction-hint">Tip: Select any skill card to reveal more session details.</p>
+    </section>
+
+    <section class="offer-banner" id="offer">
+      <div><p class="eyebrow">YOU KNOW MORE THAN YOU THINK</p><h2>Got a skill to share?</h2><p>Help someone take their first step. Your experience could be exactly what another person needs.</p></div>
+      <a class="button button-light" href="mailto:hello@skillswap.example?subject=I'd%20like%20to%20offer%20a%20skill">Become a provider <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#home"><span class="brand-mark">S</span> SkillSwap</a>
+    <p>Good things happen when we share what we know.</p>
+    <span>© 2026 SkillSwap · Learning together</span>
+  </footer>
+</body>
+</html>
