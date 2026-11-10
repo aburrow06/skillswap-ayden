@@ -55,8 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function matches(skill) {
+    const category = normalizeCategory(skill.category);
+    const aliases = {
+      creative: ["creative", "photography", "music", "illustration", "art", "design"],
+      tech: ["tech", "programming", "web development", "electronics", "technology"],
+      life: ["life", "cooking", "career", "language", "everyday life"]
+    };
     const categoryMatch = selectedCategory === "all" ||
-      normalizeCategory(skill.category) === selectedCategory;
+      category === selectedCategory ||
+      (aliases[selectedCategory] || []).some(alias => category.includes(alias));
     const haystack = [skill.title, skill.description, skill.category, skill.provider]
       .join(" ").toLowerCase();
     return categoryMatch && haystack.includes(searchTerm);
@@ -192,8 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: String(data.get("description")).trim(),
       price: Number(data.get("price"))
     };
-    if (!skill.title || !skill.category || !skill.provider || !skill.description ||
-        !Number.isFinite(skill.price) || skill.price < 0) {
+    if (!window.SkillSwapUtils.isValidSkill(skill)) {
       status.dataset.kind = "error";
       status.textContent = "Please complete every field with a valid non-negative price.";
       return;
