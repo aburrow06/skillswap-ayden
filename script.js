@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : "Demo mode: showing sample listings. Connect the API to load shared listings.";
   }
 
+  // Factory Pattern: this function builds and returns a complete skill-card element.
   function renderSkill(skill) {
     const article = document.createElement("article");
     article.className = "skill-card";
@@ -128,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     provider.className = "provider";
     const avatar = document.createElement("span");
     avatar.className = "provider-avatar avatar-lavender";
-    avatar.textContent = String(skill.provider || "S").split(/\\s+/).map(x => x[0]).join("").slice(0,2).toUpperCase();
+    avatar.textContent = String(skill.provider || "S").split(/\s+/).map(x => x[0]).join("").slice(0,2).toUpperCase();
     const providerName = document.createElement("strong");
     providerName.textContent = skill.provider || "Community member";
     const providerLabel = document.createElement("small");
@@ -208,13 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const apiBase = window.SKILLSWAP_API_URL || "http://localhost:3000/api/skills";
     if (apiAvailable) {
       try {
-        const response = await fetch(apiBase, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(skill)
-        });
-        if (!response.ok) throw new Error(`Request failed (${response.status})`);
-        const saved = await response.json();
+        const apiClient = window.SkillSwapApiClient.createClient(apiBase);
+        const saved = await apiClient.createSkill(skill);
         grid.prepend(renderSkill(saved));
         status.dataset.kind = "success";
         status.textContent = "Your skill listing was saved to the SkillSwap API.";
@@ -235,10 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadSkills() {
     const apiBase = window.SKILLSWAP_API_URL || "http://localhost:3000/api/skills";
     try {
-      const response = await fetch(apiBase, { headers: { Accept: "application/json" } });
-      if (!response.ok) throw new Error(`Request failed (${response.status})`);
-      const records = await response.json();
-      if (!Array.isArray(records)) throw new Error("Unexpected API response");
+      const apiClient = window.SkillSwapApiClient.createClient(apiBase);
+      const records = await apiClient.getSkills();
       apiAvailable = true;
       grid.replaceChildren(...records.map(renderSkill));
       status.dataset.kind = "success";
