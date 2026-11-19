@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  unit-tests:
+  quality-checks:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -16,5 +16,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Run unit tests
-        run: node --test skills-utils.test.js
+      - name: Check JavaScript syntax
+        run: |
+          node --check script.js
+          node --check api-client.js
+          node --check skills-utils.js
+      - name: Run unit and API integration tests
+        run: node --test *.test.js
